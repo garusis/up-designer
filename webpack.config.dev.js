@@ -1,5 +1,6 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import Dotenv from "dotenv-webpack";
 import autoprefixer from 'autoprefixer';
 import path from 'path';
 
@@ -22,8 +23,12 @@ export default {
     filename: 'bundle.js'
   },
   plugins: [
+    new Dotenv({
+      path: "./.env.example",
+      safe: true,
+      systemvars: true
+    }),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development'), // Tells React to build in either dev or prod modes. https://facebook.github.io/react/downloads.html (See bottom)
       __DEV__: true
     }),
     new webpack.HotModuleReplacementPlugin(),
@@ -58,7 +63,10 @@ export default {
       {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&mimetype=image/svg+xml'},
       {test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader?name=[name].[ext]'},
       {test: /\.ico$/, loader: 'file-loader?name=[name].[ext]'},
-      {test: /(\.css|\.scss|\.sass)$/, loaders: ['style-loader', 'css-loader?sourceMap', 'postcss-loader', 'sass-loader?sourceMap']}
+      {
+        test: /(\.css|\.scss|\.sass)$/,
+        loaders: ['style-loader', 'css-loader?sourceMap', 'postcss-loader', 'sass-loader?sourceMap']
+      }
     ]
   }
 };
