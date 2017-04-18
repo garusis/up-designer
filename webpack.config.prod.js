@@ -4,13 +4,9 @@ import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import WebpackMd5Hash from 'webpack-md5-hash';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import Dotenv from "dotenv-webpack";
 import autoprefixer from 'autoprefixer';
 import path from 'path';
-
-const GLOBALS = {
-  'process.env.NODE_ENV': JSON.stringify('production'),
-  __DEV__: false
-};
 
 export default {
   resolve: {
@@ -28,8 +24,13 @@ export default {
     // Hash the files using MD5 so that their names change when the content changes.
     new WebpackMd5Hash(),
 
-    // Tells React to build in prod mode. https://facebook.github.io/react/downloads.html
-    new webpack.DefinePlugin(GLOBALS),
+    new Dotenv({
+      safe: false,
+      systemvars: true
+    }),
+    new webpack.DefinePlugin({
+      __DEV__: false
+    }),
 
     // Generate an external css file with a hash in the filename
     new ExtractTextPlugin('[name].[contenthash].css'),
