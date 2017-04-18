@@ -1,1 +1,4 @@
-// Set up your application entry point here...
+"use strict"
+import {configure as firebaseConfig} from "./firebase"
+
+firebaseConfig()

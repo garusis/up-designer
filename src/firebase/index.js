@@ -7,6 +7,6 @@ import defaultSettings from "./default_settings"
 
 export let firebaseApp = null
 
-export default function configure (settings = defaultSettings) {
+export function configure (settings = defaultSettings) {
     firebaseApp = firebase.initializeApp(settings)
 }
