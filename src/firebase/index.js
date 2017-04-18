@@ -8,5 +8,5 @@ import defaultSettings from "./default_settings"
 export let firebaseApp = null
 
 export function configure (settings = defaultSettings) {
-    firebaseApp = firebase.initializeApp(settings)
+    return firebaseApp = firebase.initializeApp(settings)
 }
