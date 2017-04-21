@@ -1,0 +1,27 @@
+"use strict"
+/**
+ * Created by garusis on 20/04/17.
+ */
+import React from "react"
+import PropTypes from "prop-types"
+import { Link, IndexLink } from "react-router"
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider"
+
+// This is a class-based component because the current
+// version of hot reloading won"t hot reload a stateless
+// component at the top-level.
+class App extends React.Component {
+  render () {
+    return (
+      <MuiThemeProvider>
+        {this.props.children}
+      </MuiThemeProvider>
+    )
+  }
+}
+
+App.propTypes = {
+  children: PropTypes.element
+}
+
+export default App
