@@ -8,7 +8,7 @@ import "./styles.scss"
 
 export default function Header () {
   return (
-    <Sidebar as={Menu} animation="push" direction="top" visible="true" inverted>
+    <Sidebar as={Menu} animation="push" direction="top" visible={true} inverted>
       <Menu.Item name="home">
         <Icon name="home"/>
         Home

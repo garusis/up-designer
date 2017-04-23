@@ -6,7 +6,6 @@ import React from "react"
 import PropTypes from "prop-types"
 //import { Link, IndexLink } from "react-router"
 import { Container } from "semantic-ui-react"
-import { Footer } from "./common"
 
 // This is a class-based component because the current
 // version of hot reloading won"t hot reload a stateless
@@ -16,7 +15,6 @@ class App extends React.Component {
     return (
       <Container textAlign="justified">
         {this.props.children}
-        <Footer/>
       </Container>
     )
   }
