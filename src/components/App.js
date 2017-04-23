@@ -4,8 +4,9 @@
  */
 import React from "react"
 import PropTypes from "prop-types"
-import { Link, IndexLink } from "react-router"
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider"
+//import { Link, IndexLink } from "react-router"
+import { Container } from "semantic-ui-react"
+import { Footer } from "./common"
 
 // This is a class-based component because the current
 // version of hot reloading won"t hot reload a stateless
@@ -13,9 +14,10 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider"
 class App extends React.Component {
   render () {
     return (
-      <MuiThemeProvider>
+      <Container textAlign="justified">
         {this.props.children}
-      </MuiThemeProvider>
+        <Footer/>
+      </Container>
     )
   }
 }

@@ -10,7 +10,9 @@ import Root from "./components/Root"
 
 import {configure as firebaseConfig} from "./firebase"
 import configureStore from "./store/configureStore"
+
 require("./favicon.ico")
+import "semantic-ui-css/semantic.min.css"
 import "./fonts/index.css"
 import "./styles/styles.scss"
 
