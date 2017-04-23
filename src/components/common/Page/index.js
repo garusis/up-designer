@@ -7,6 +7,8 @@ import PropTypes from "prop-types"
 import Header from "../Header"
 import Footer from "../Footer"
 
+import "./styles.scss"
+
 Page.propTypes = {
   children: PropTypes.element
 }
@@ -15,7 +17,9 @@ export default function Page (props) {
   return (
     <div className="page">
       <Header/>
-      {props.children}
+      <section className="main-content">
+        {props.children}
+      </section>
       <Footer/>
     </div>
   )

@@ -13,7 +13,7 @@ import { Container } from "semantic-ui-react"
 class App extends React.Component {
   render () {
     return (
-      <Container textAlign="justified">
+      <Container textAlign="justified" fluid>
         {this.props.children}
       </Container>
     )
