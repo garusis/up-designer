@@ -5,7 +5,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 //import { Link, IndexLink } from "react-router"
-import { Container } from "semantic-ui-react"
 
 // This is a class-based component because the current
 // version of hot reloading won"t hot reload a stateless
@@ -13,9 +12,9 @@ import { Container } from "semantic-ui-react"
 class App extends React.Component {
   render () {
     return (
-      <Container textAlign="justified" fluid>
+      <div>
         {this.props.children}
-      </Container>
+      </div>
     )
   }
 }
