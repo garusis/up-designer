@@ -12,8 +12,8 @@ import {configure as firebaseConfig} from "./firebase"
 import configureStore from "./store/configureStore"
 
 require("./favicon.ico")
-import "semantic-ui-css/semantic.min.css"
-import "./fonts/index.css"
+import "../node_modules/semantic-ui-less/semantic.less"
+import "./fonts/index.scss"
 import "./styles/styles.scss"
 
 injectTapEventPlugin()

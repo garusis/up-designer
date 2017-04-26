@@ -9,10 +9,6 @@ import Footer from "../Footer"
 
 import "./styles.scss"
 
-Page.propTypes = {
-  children: PropTypes.element
-}
-
 export default function Page (props) {
   return (
     <div className="page">
@@ -24,3 +20,8 @@ export default function Page (props) {
     </div>
   )
 }
+
+Page.propTypes = {
+  children: PropTypes.node
+}
+

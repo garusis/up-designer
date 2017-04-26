@@ -31,6 +31,8 @@
   "license": "MIT",
   "dependencies": {
     "firebase": "^3.7.8",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.3",
     "object-assign": "4.1.0",
     "react": "15.4.1",
     "react-dom": "15.4.1",
@@ -41,6 +43,7 @@
     "redux": "3.6.0",
     "redux-thunk": "2.1.0",
     "semantic-ui-css": "^2.2.10",
+    "semantic-ui-less": "^2.2.10",
     "semantic-ui-react": "^0.68.0"
   },
   "devDependencies": {

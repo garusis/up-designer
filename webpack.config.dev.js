@@ -1,12 +1,17 @@
 import webpack from "webpack"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 import Dotenv from "dotenv-webpack"
-import autoprefixer from "autoprefixer"
 import path from "path"
+import { postCssLoader, sassLoader, lessLoader, cssLoader, styleLoader } from "./webpack/settings.common"
 
 export default {
   resolve: {
-    extensions: ["*", ".js", ".jsx", ".json"]
+    extensions: ["*", ".js", ".jsx", ".json"],
+    alias: {
+      "../../theme.config$": path.join(process.cwd(), "src", "styles", "theme.config.less"),
+      "./themes/themes/github/assets/fonts": path.join(process.cwd(), "src", "fonts", "semantic"),
+      "./themes/themes": path.join(process.cwd(), "node_modules", "semantic-ui-less", "themes")
+    }
   },
   devtool: "eval-source-map", // more info:https://webpack.github.io/docs/build-performance.html#sourcemaps and https://webpack.github.io/docs/configuration.html#devtool
   entry: [
@@ -46,11 +51,7 @@ export default {
       debug: true,
       noInfo: true, // set to false to see a list of every file being bundled.
       options: {
-        sassLoader: {
-          includePaths: [path.resolve(__dirname, "src", "styles")]
-        },
-        context: "/",
-        postcss: () => [autoprefixer],
+        context: "/"
       }
     })
   ],
@@ -64,8 +65,16 @@ export default {
       {test: /\.(jpe?g|png|gif)$/i, loader: "file-loader?name=[name].[ext]"},
       {test: /\.ico$/, loader: "file-loader?name=[name].[ext]"},
       {
-        test: /(\.css|\.scss|\.sass)$/,
-        loaders: ["style-loader", "css-loader?sourceMap", "postcss-loader", "sass-loader?sourceMap"]
+        test: /(\.css)$/,
+        use: [styleLoader, cssLoader, postCssLoader]
+      },
+      {
+        test: /(\.scss|\.sass)$/,
+        use: [styleLoader, cssLoader, postCssLoader, sassLoader]
+      },
+      {
+        test: /(\.less)$/,
+        use: [styleLoader, cssLoader, postCssLoader, lessLoader]
       }
     ]
   }

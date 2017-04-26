@@ -8,7 +8,9 @@ import {Page} from "../common"
 export default function HomePage () {
   return (
     <Page>
-      <div>My home page</div>
+      <div>
+        .
+      </div>
     </Page>
   )
 }
