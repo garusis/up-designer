@@ -24,4 +24,3 @@ export default function Page (props) {
 Page.propTypes = {
   children: PropTypes.node
 }
-
