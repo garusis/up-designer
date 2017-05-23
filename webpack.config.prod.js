@@ -6,7 +6,7 @@ import WebpackMd5Hash from "webpack-md5-hash"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 import Dotenv from "dotenv-webpack"
 import path from "path"
-import { postCssLoader, sassLoader, lessLoader, cssLoader } from "./webpack/settings.common"
+import { postCssLoader, sassLoader, lessLoader, cssLoader, loadEnvVars } from "./webpack/settings.common"
 
 export default {
   resolve: {
@@ -28,9 +28,9 @@ export default {
       safe: false,
       systemvars: true
     }),
-    new webpack.DefinePlugin({
-      __DEV__: false
-    }),
+    new webpack.DefinePlugin(loadEnvVars({
+      __DEV__: true
+    })),
 
     // Generate an external css file with a hash in the filename
     new ExtractTextPlugin("[name].[contenthash].css"),

@@ -2,7 +2,7 @@ import webpack from "webpack"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 import Dotenv from "dotenv-webpack"
 import path from "path"
-import { postCssLoader, sassLoader, lessLoader, cssLoader, styleLoader } from "./webpack/settings.common"
+import { postCssLoader, sassLoader, lessLoader, cssLoader, styleLoader, loadEnvVars } from "./webpack/settings.common"
 
 export default {
   resolve: {
@@ -33,9 +33,9 @@ export default {
       safe: true,
       systemvars: true
     }),
-    new webpack.DefinePlugin({
+    new webpack.DefinePlugin(loadEnvVars({
       __DEV__: true
-    }),
+    })),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({     // Create HTML file that includes references to bundled CSS and JS.

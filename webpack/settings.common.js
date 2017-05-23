@@ -36,3 +36,18 @@ export const cssLoader = {
 export const styleLoader = {
   loader: "style-loader"
 }
+
+export function loadEnvVars(existingVars) {
+  existingVars = existingVars || {}
+
+  let vars = existingVars['process.env'] || {}
+  let envVars = process.env
+
+  for (let key in envVars) {
+    vars[key] = JSON.stringify(envVars[key])
+  }
+
+  existingVars['process.env'] = vars
+
+  return existingVars
+}
