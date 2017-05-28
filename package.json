@@ -30,6 +30,7 @@
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.16.1",
     "firebase": "^3.7.8",
     "less": "^2.7.2",
     "less-loader": "^4.0.3",
