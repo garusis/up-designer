@@ -4,9 +4,9 @@
  */
 import _ from "lodash"
 
-const providersSettings = {}
+export const providersSettings = {}
 
-export default providersSettings
+export {socialMediaReducer} from "./reducer"
 
 export function config(provider, settings) {
   providersSettings[provider] = _.assign(providersSettings[provider] || {}, settings)

@@ -12,8 +12,9 @@ function configureStoreProd(initialState) {
     thunk,
   ]
 
-  return createStore(rootReducer, initialState, compose(
-    applyMiddleware(...middlewares)
+  return createStore(rootReducer, initialState,
+    compose(
+      applyMiddleware(...middlewares)
     )
   )
 }
@@ -31,8 +32,9 @@ function configureStoreDev(initialState) {
   ]
 
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose // add support for Redux dev tools
-  const store = createStore(rootReducer, initialState, composeEnhancers(
-    applyMiddleware(...middlewares)
+  const store = createStore(rootReducer, initialState,
+    composeEnhancers(
+      applyMiddleware(...middlewares)
     )
   )
 
