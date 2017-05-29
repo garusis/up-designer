@@ -22,7 +22,7 @@ export default class BaseLogin extends React.Component {
     this.props.children.setProvider(this)
   }
 
-  async load(){
+  async loadProvider(){
     return await loadProvider(this.providerType)
   }
 

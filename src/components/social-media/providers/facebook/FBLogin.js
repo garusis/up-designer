@@ -11,4 +11,9 @@ export default class FBLogin extends BaseLogin {
 
     this.providerType = providers.FB
   }
+
+  async startRequestLogin(){
+    await this.loadProvider()
+  }
+
 }
