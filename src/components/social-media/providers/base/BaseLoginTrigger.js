@@ -21,11 +21,17 @@ export default class BaseLoginTrigger extends React.Component {
     this.provider = provider
   }
 
-  startRequestLogin() {
-    this.provider
-      .startRequestLogin(this.state.loginData)
-      .then(this.props.onSuccessLogin)
-      .catch(this.props.onErrorLogin)
+  async startRequestLogin() {
+    try{
+
+      let providerResponse = await this.provider.startRequestLogin(this.state.loginData)
+      info("onSuccessLogin, loginData = ", providerResponse)
+      this.props.onSuccessLogin(providerResponse)
+
+    }catch (err){
+      error("onErrorLogin, error = ", err)
+      this.props.onErrorLogin(err)
+    }
   }
 }
 

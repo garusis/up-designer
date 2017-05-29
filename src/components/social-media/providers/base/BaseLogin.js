@@ -6,7 +6,7 @@ import React, {PropTypes} from "react"
 import Debug from "debug"
 
 import {BaseLoginTrigger} from "../base"
-import {providers, loadProvider} from "../providerList"
+import {loadProvider} from "../providerList"
 
 const error = Debug("SocialMedia:BaseLogin:error")
 
