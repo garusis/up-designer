@@ -5,6 +5,7 @@
 import React from "react"
 import {Sidebar, Menu, Icon} from "semantic-ui-react"
 import {LoginButton} from "../LoginButton"
+import {providers as socialMediaProviders} from "../../social-media"
 
 import "./styles.scss"
 
@@ -32,7 +33,9 @@ export function Header() {
         Channels
       </Menu.Item>
       <Menu.Item>
-        <LoginButton onSuccessLogin={success} onErrorLogin={error}/>
+        <LoginButton onSuccessLogin={success} onErrorLogin={error} provider={socialMediaProviders.FB}>
+          Facebook
+        </LoginButton>
       </Menu.Item>
     </Sidebar>
   )

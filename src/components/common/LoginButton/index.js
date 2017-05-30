@@ -3,7 +3,7 @@
  * Created by garusis on 29/05/17.
  */
 import React, {PropTypes} from "react"
-import {SocialLoginTrigger, SocialLogin} from "../../social-media"
+import {providers, SocialLoginTrigger, SocialLogin} from "../../social-media"
 
 class Button extends SocialLoginTrigger {
   constructor(props, context) {
@@ -19,6 +19,11 @@ class Button extends SocialLoginTrigger {
   }
 }
 
+Button.propTypes = {
+  children: PropTypes.node.isRequired
+}
+
+
 export class LoginButton extends React.Component {
   constructor(props, context) {
     super(props, context)
@@ -26,7 +31,7 @@ export class LoginButton extends React.Component {
 
   render() {
     return (
-      <SocialLogin>
+      <SocialLogin provider={this.props.provider}>
         <Button
           onSuccessLogin={this.props.onSuccessLogin}
           onErrorLogin={this.props.onErrorLogin}>
@@ -39,6 +44,7 @@ export class LoginButton extends React.Component {
 
 LoginButton.propTypes = {
   children: PropTypes.node.isRequired,
+  provider: PropTypes.oneOf(Object.values(providers)).isRequired,
   onSuccessLogin: PropTypes.func.isRequired,
   onErrorLogin: PropTypes.func.isRequired
 }
