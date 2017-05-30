@@ -5,10 +5,10 @@
 import React, {PropTypes} from "react"
 import Debug from "debug"
 
-const info = Debug("SocialMedia:BaseLoginTrigger:info")
-const error = Debug("SocialMedia:BaseLoginTrigger:error")
+const info = Debug("SocialMedia:components:SocialLoginTrigger:info")
+const error = Debug("SocialMedia:components:SocialLoginTrigger:error")
 
-export default class BaseLoginTrigger extends React.Component {
+export default class SocialLoginTrigger extends React.Component {
   constructor(props, context) {
     super(props, context)
 
@@ -35,7 +35,7 @@ export default class BaseLoginTrigger extends React.Component {
   }
 }
 
-BaseLoginTrigger.propTypes = {
+SocialLoginTrigger.propTypes = {
   onSuccessLogin: PropTypes.func.isRequired,
   onErrorLogin: PropTypes.func.isRequired
 }

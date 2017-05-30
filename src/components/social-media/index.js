@@ -11,3 +11,8 @@ export const providersSettings = {}
 export function config(provider, settings) {
   providersSettings[provider] = _.assign(providersSettings[provider] || {}, settings)
 }
+
+export {providers} from "./providers"
+
+export {SocialLoginTrigger, SocialLogin} from "./components"
+
