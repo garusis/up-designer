@@ -7,4 +7,4 @@ export const providers = {
   FB: "facebook"
 }
 
-export * as strategies from "./strategies"
+export {strategies} from "./strategies"

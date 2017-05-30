@@ -16,7 +16,7 @@ function error() {
   console.log("errrroooooor")
 }
 
-export default function Header() {
+export function Header() {
   return (
     <Sidebar as={Menu} animation="push" direction="top" visible={true}>
       <Menu.Item name="home">

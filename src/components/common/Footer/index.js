@@ -5,7 +5,7 @@
 import React from "react"
 import "./styles.scss"
 
-export default function Footer() {
+export function Footer() {
   return (
     <footer className="footer">
       This is a footer

@@ -8,7 +8,7 @@ import Debug from "debug"
 const info = Debug("SocialMedia:components:SocialLoginTrigger:info")
 const error = Debug("SocialMedia:components:SocialLoginTrigger:error")
 
-export default class SocialLoginTrigger extends React.Component {
+export class SocialLoginTrigger extends React.Component {
   constructor(props, context) {
     super(props, context)
 

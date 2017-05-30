@@ -8,7 +8,7 @@ import Debug from "debug"
 import SocialLoginTrigger from "./SocialLoginTrigger"
 import {providers, strategies} from "../providers"
 
-export default class SocialLogin extends React.Component {
+export class SocialLogin extends React.Component {
   constructor(props, context) {
     super(props, context)
 

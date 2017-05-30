@@ -9,7 +9,7 @@ import Footer from "../Footer"
 
 import "./styles.scss"
 
-export default function Page (props) {
+export function Page (props) {
   return (
     <div className="page">
       <Header/>
