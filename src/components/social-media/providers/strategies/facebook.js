@@ -30,6 +30,13 @@ function loadSDK() {
       }
 
       SDKIsLoaded = true
+      global.FB.init({
+        appId            : "your-app-id",
+        autoLogAppEvents : true,
+        xfbml            : true,
+        version          : "v2.9"
+      })
+
       resolve()
     })
   })

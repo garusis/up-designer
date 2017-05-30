@@ -14,5 +14,5 @@ export function config(provider, settings) {
 
 export {providers} from "./providers"
 
-export {SocialLoginTrigger, SocialLogin} from "./components"
+export {SocialLoginTrigger} from "./components"
 

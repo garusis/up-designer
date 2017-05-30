@@ -4,6 +4,8 @@
  */
 import React, {PropTypes} from "react"
 import Debug from "debug"
+import {providers, strategies} from "../providers"
+
 
 const info = Debug("SocialMedia:components:SocialLoginTrigger:info")
 const error = Debug("SocialMedia:components:SocialLoginTrigger:error")
@@ -17,17 +19,13 @@ export class SocialLoginTrigger extends React.Component {
     this.startRequestLogin = this.startRequestLogin.bind(this)
   }
 
-  setProvider(provider) {
-    this.provider = provider
-  }
-
   async startRequestLogin() {
     try{
+      let loginStrategy = strategies[`${this.props.provider}Login`]
+      let providerResponse = await loginStrategy()
 
-      let providerResponse = await this.provider.startRequestLogin(this.state.loginData)
       info("onSuccessLogin, loginData = ", providerResponse)
       this.props.onSuccessLogin(providerResponse)
-
     }catch (err){
       error("onErrorLogin, error = ", err)
       this.props.onErrorLogin(err)
@@ -37,5 +35,6 @@ export class SocialLoginTrigger extends React.Component {
 
 SocialLoginTrigger.propTypes = {
   onSuccessLogin: PropTypes.func.isRequired,
-  onErrorLogin: PropTypes.func.isRequired
+  onErrorLogin: PropTypes.func.isRequired,
+  provider: PropTypes.oneOf(Object.values(providers)).isRequired
 }
