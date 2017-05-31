@@ -1,8 +1,10 @@
 import webpack from "webpack"
 import HtmlWebpackPlugin from "html-webpack-plugin"
-import Dotenv from "dotenv-webpack"
+import Dotenv from "dotenv"
 import path from "path"
 import { postCssLoader, sassLoader, lessLoader, cssLoader, styleLoader, loadEnvVars } from "./webpack/settings.common"
+
+Dotenv.config()
 
 export default {
   resolve: {
@@ -28,11 +30,6 @@ export default {
     filename: "bundle.js"
   },
   plugins: [
-    new Dotenv({
-      path: "./.env.example",
-      safe: true,
-      systemvars: true
-    }),
     new webpack.DefinePlugin(loadEnvVars({
       __DEV__: true
     })),

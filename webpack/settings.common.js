@@ -48,6 +48,5 @@ export function loadEnvVars(existingVars) {
   }
 
   existingVars['process.env'] = vars
-
   return existingVars
 }

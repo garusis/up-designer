@@ -4,9 +4,11 @@ import webpack from "webpack"
 import ExtractTextPlugin from "extract-text-webpack-plugin"
 import WebpackMd5Hash from "webpack-md5-hash"
 import HtmlWebpackPlugin from "html-webpack-plugin"
-import Dotenv from "dotenv-webpack"
+import Dotenv from "dotenv"
 import path from "path"
 import { postCssLoader, sassLoader, lessLoader, cssLoader, loadEnvVars } from "./webpack/settings.common"
+
+Dotenv.config()
 
 export default {
   resolve: {
@@ -23,11 +25,6 @@ export default {
   plugins: [
     // Hash the files using MD5 so that their names change when the content changes.
     new WebpackMd5Hash(),
-
-    new Dotenv({
-      safe: false,
-      systemvars: true
-    }),
     new webpack.DefinePlugin(loadEnvVars({
       __DEV__: true
     })),

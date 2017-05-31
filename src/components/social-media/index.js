@@ -6,10 +6,10 @@ import _ from "lodash"
 
 
 
-export const providersSettings = {}
+import {configs} from "./configs"
 
 export function config(provider, settings) {
-  providersSettings[provider] = _.assign(providersSettings[provider] || {}, settings)
+  configs[provider] = _.assign(configs[provider] || {}, settings)
 }
 
 export {providers} from "./providers"
