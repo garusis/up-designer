@@ -6,8 +6,6 @@ import {providers} from "./providers/availableList"
 
 export const configs = {}
 
-console.log(process.env.SOCIAL_MEDIA_FB_APPID)
-
 configs[providers.FB] = {
   init: {
     appId: process.env.SOCIAL_MEDIA_FB_APPID,

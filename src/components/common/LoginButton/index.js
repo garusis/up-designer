@@ -8,11 +8,18 @@ import {providers, SocialLoginTrigger} from "../../social-media"
 export class LoginButton extends SocialLoginTrigger {
   constructor(props, context) {
     super(props, context)
+
+    this.onClick = this.onClick.bind(this)
+  }
+
+  onClick(ev){
+    ev.preventDefault()
+    this.startRequestLogin()
   }
 
   render() {
     return (
-      <button type="button" onClick={this.startRequestLogin}>
+      <button type="button" onClick={this.onClick}>
         {this.props.children}
       </button>
     )

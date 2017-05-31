@@ -9,8 +9,8 @@ import {providers as socialMediaProviders} from "../../social-media"
 
 import "./styles.scss"
 
-function success() {
-  console.log("sucesssss")
+function success(data) {
+  console.log(data)
 }
 
 function error() {

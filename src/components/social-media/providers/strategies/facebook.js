@@ -13,6 +13,7 @@ const error = Debug("SocialMedia:strategies:facebook:error")
 let SDKPromise = null
 let SDKIsLoaded = false
 
+let FB
 
 /**
  *
@@ -24,7 +25,9 @@ function loadSDK() {
   if (SDKIsLoaded) return Promise.resolve()
 
   SDKPromise = new Promise(function (resolve, reject) {
+
     let {SDKUrl, init} = configs[providers.FB]
+
     $script.get(SDKUrl, function (err) {
       if (err) {
         error(`Error loading facebook SDK = `, err)
@@ -32,17 +35,33 @@ function loadSDK() {
       }
 
       SDKIsLoaded = true
-      global.FB.init(init)
+      FB = global.FB
+
+      FB.init(init)
 
       resolve()
     })
+
   })
   return SDKPromise
 }
 
+function loginWrapper() {
+  return new Promise(function (resolve, reject) {
+    FB.login(function (response) {
+      if (!response.authResponse) {
+        return reject()
+      }
+      FB.api("/me", function (response) {
+        resolve(response)
+      })
+    })
+  })
+}
 
 export async function facebookLogin() {
   await loadSDK()
+  return await loginWrapper()
 }
 
 export async function facebookShare() {
